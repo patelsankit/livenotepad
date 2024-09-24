@@ -305,7 +305,7 @@ const Notepad = () => {
             {copied && <IconCheck className="h-5 w-5  text-gray-200" />}
           </div>
           <h1 className="text-left sm:text-center text-white text-sm sm:text-2xl pb-2 font-bold sm:whitespace-nowrap">
-            Live Notepad{" "}
+            Live Notepad<span className="text-sm">(v2) </span>
             <small className="text-gray-200 text-xs font-normal">
               by{" "}
               <a
