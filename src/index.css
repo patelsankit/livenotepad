@@ -1,0 +1,35 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+
+.font-cst {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  @apply bg-black h-dvh p-3 sm:p-4 items-center text-white font-cst;
+}
+#root {
+  @apply w-full;
+}
+.small-scroll::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+.small-scroll::-webkit-scrollbar-thumb {
+  @apply rounded-md bg-gray-300;
+}
+.epr-main {
+  @apply !w-72;
+}
+.epr_-6npj90 {
+  --epr-header-padding: 8px !important;
+}
+.epr_c90x4z {
+  @apply !h-10;
+}
+.epr_c90x4z .epr_-tqlurd {
+  @apply !min-h-8 !h-8 !min-w-8 !w-8;
+}
