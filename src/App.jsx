@@ -47,10 +47,10 @@ function App() {
         <Route path="/:noteId" element={<Notepad />} />
       </Routes>
       <AlertDialog>
-        <AlertDialogTrigger className="absolute  left-auto sm:left-4 lg:left-36 z-20  right-4 w-fit top-14 sm:top-[57px] lg:top-6 text-sm bg-white/20 hover:bg-white/30 px-2 sm:px-3 py-1 sm:py-2 rounded-md sm:rounded-xl">
-          Create New Note
+        <AlertDialogTrigger className="absolute  left-auto sm:left-4 lg:left-[260px] z-20 right-4 w-fit top-1.5 sm:top-[50px] md:top-[56px] lg:top-7 text-sm bg-white/20 hover:bg-white/30 px-2 sm:px-3 py-1.5 lg:py-2 rounded-sm">
+          <span className="hi3dden sm:block">Create New Note</span>
         </AlertDialogTrigger>
-        <AlertDialogContent className="border-gray-500  w-[calc(100%-16px)] sm:w-full rounded-lg">
+        <AlertDialogContent className="border-gray-500 bg-black  w-[calc(100%-16px)] sm:w-full rounded-lg">
           <AlertDialogHeader>
             <AlertDialogTitle className="text-center">
               Are You Sure You Want To Create New Personal Note?
