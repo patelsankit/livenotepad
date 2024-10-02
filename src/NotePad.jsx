@@ -13,6 +13,7 @@ import {
   IconClipboard,
   IconCopy,
   IconFile,
+  IconInfoCircle,
   IconLoader,
   IconMoodSmileBeam,
   IconTrash,
@@ -408,6 +409,16 @@ const Notepad = () => {
             placeholder={loading ? "" : "Write your notes here..."}
             className="small-scroll resize-none shadow-2xl p-2.5 sm:p-4 min-h-[300px] h-[calc(80dvh-100px)] overflow-auto w-full bg-[#18181b] text-white border-gray-500 border-2 border-solid focus-visible:outline-none rounded-xl"
           />
+          <div className="text-sm grid grid-flow-col justify-start gap-2">
+            <IconInfoCircle />
+            <div>
+
+            You can create a new personal note for a specific name, such as
+            <span className="font-bold"> /test,</span>
+            <span className="font-bold"> /YourName,</span>
+            <span className="font-bold"> anything</span> in the URL link.
+            </div>
+          </div>
           <div className="absolute top-5 right-0.5 text-end hidden md:block">
             <Button className="px-2.5 py-1" onClick={toggleEmojiPicker}>
               <IconMoodSmileBeam className="w-5 h-5" />
