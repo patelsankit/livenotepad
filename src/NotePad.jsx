@@ -16,6 +16,7 @@ import {
   IconInfoCircle,
   IconLoader,
   IconMoodSmileBeam,
+  IconNotes,
   IconTrash,
   IconWashDrycleanOff,
 } from "@tabler/icons-react";
@@ -342,14 +343,22 @@ const Notepad = () => {
                 )}
               </Button>
             </div>
-            <div className="flex gap-2 items-center gap-1 lg:gap-3">
+            <div className="flex gap-2 items-center gap-1 lg:gap-3 pt-0.5">
               <div
                 onClick={copyToClipboard}
-                className="z-10 text-gray-100 sm:hover:text-gray-500  text-base left-3 sm:left-5 top-12 sm:top-2 lg:top-8 items-center gap-1 cursor-pointer text-sm hidden sm:flex"
+                className="group flex items-center justify-center cursor-pointer h-[48px] w-[60px] md:h-[55px] md:w-[55px] rounded-md md:p-1 bg-white/10 sm:hover:bg-white/20 shadow-lg text-gray-500 hover:text-gray-200"
               >
-                Notepad URL
-                {!copied && <IconCopy className=" h-5 w-5 " />}
-                {copied && <IconCheck className="h-5 w-5  text-gray-200" />}
+                <div className="group-hover:scale-90 transition-all duration-500 grid cursor-pointer ">
+                  {!copied && (
+                    <IconNotes className=" h-5 w-5 md:w-6 md:h-6 cursor-pointer mx-auto" />
+                  )}
+                  {copied && (
+                    <IconCheck className="h-5 w-5 md:w-6 md:h-6 cursor-pointer mx-auto" />
+                  )}
+                  <span className="max-h--0 overflow-hidden group-hover:max-h-20 ease-in-out text-xs sm:text-sm text-center whitespace-nowrap">
+                    Live URL
+                  </span>
+                </div>
               </div>
               <div
                 className="group flex items-center justify-center cursor-pointer h-[48px] w-[48px] md:h-[55px] md:w-[55px] rounded-md md:p-1 bg-white/10 sm:hover:bg-white/20 shadow-lg text-gray-500 hover:text-gray-200"
@@ -409,14 +418,13 @@ const Notepad = () => {
             placeholder={loading ? "" : "Write your notes here..."}
             className="small-scroll resize-none shadow-2xl p-2.5 sm:p-4 min-h-[300px] h-[calc(80dvh-100px)] overflow-auto w-full bg-[#18181b] text-white border-gray-500 border-2 border-solid focus-visible:outline-none rounded-xl"
           />
-          <div className="text-sm grid grid-flow-col justify-start gap-2">
+          <div className="text-sm grid grid-flow-col justify-start gap-2 text-gray-400">
             <IconInfoCircle />
             <div>
-
-            You can create a new personal note for a specific name, such as
-            <span className="font-bold"> /test,</span>
-            <span className="font-bold"> /YourName,</span>
-            <span className="font-bold"> anything</span> in the URL link.
+              You can create a new personal note for a specific name, such as
+              <span className="font-bold"> /test,</span>
+              <span className="font-bold"> /YourName,</span>
+              <span className="font-bold"> anything</span> in the URL link.
             </div>
           </div>
           <div className="absolute top-5 right-0.5 text-end hidden md:block">
