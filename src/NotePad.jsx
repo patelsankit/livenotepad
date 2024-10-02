@@ -318,12 +318,12 @@ const Notepad = () => {
                 onChange={handleFileChange}
                 type="file"
                 multiple
-                className="!cursor-pointer h-full w-full opacity-0 absolute "
+                className="!cursor-pointer h-full w-full opacity-0 absolute px-2 sm:px-3"
                 name=""
               />
               <Button
                 variant="outline"
-                className="cursor-pointer hover:bg-white/20"
+                className="cursor-pointer hover:bg-white/20 max-w-[95px] sm:max-w-full"
               >
                 {isUploading ? (
                   <>
@@ -346,7 +346,7 @@ const Notepad = () => {
             <div className="flex gap-2 items-center gap-1 lg:gap-3 pt-0.5">
               <div
                 onClick={copyToClipboard}
-                className="group flex items-center justify-center cursor-pointer h-[48px] w-[60px] md:h-[55px] md:w-[55px] rounded-md md:p-1 bg-white/10 sm:hover:bg-white/20 shadow-lg text-gray-500 hover:text-gray-200"
+                className="group flex items-center justify-center cursor-pointer h-[48px] w-[60px] md:h-[55px] sm:w-[70px] rounded-md md:p-1 bg-white/10 sm:hover:bg-white/20 shadow-lg text-gray-500 hover:text-gray-200"
               >
                 <div className="group-hover:scale-90 transition-all duration-500 grid cursor-pointer ">
                   {!copied && (
