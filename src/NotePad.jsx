@@ -456,17 +456,24 @@ const Notepad = () => {
                 className="p-4 rounded-lg bg-white/10 flex items-center justify-center max-h-[250px] h-full relative"
               >
                 <IconTrash
-                  className="absolute top-2 right-2 bg-red-600 p-1 rounded-full hover:bg-red-700 focus:outline-none cursor-pointer"
+                  className="absolute top-2 right-2 bg-red-600 p-1 rounded-full hover:bg-red-700 focus:outline-none cursor-pointer sm:hover:scale-110 transition-all duration-500"
                   onClick={() => handleFileDelete(file.url, file.name)}
                 />
-                {/* <IconDownload className="absolute top-2 right-9 bg-gray-600 p-1 rounded-full hover:bg-blue-700 focus:outline-none cursor-pointer" /> */}
-                <a href={file.url} target="_blank" rel="noopener noreferrer">
+                <a
+                  className="absolute top-2 right-10"
+                  href={file.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IconDownload className="bg-gray-600 p-1 rounded-full hover:bg-blue-700 focus:outline-none cursor-pointer sm:hover:scale-110 transition-all duration-500" />
+                </a>
+                <span>
                   <img
                     src={file.url}
                     alt={file.name}
                     className="rounded-xl w-full max-h-[220px] "
                   />
-                </a>
+                </span>
               </div>
             ))}
             {isUploading && (
