@@ -12,6 +12,7 @@ import {
   IconCheck,
   IconClipboard,
   IconCopy,
+  IconDownload,
   IconFile,
   IconInfoCircle,
   IconLoader,
@@ -297,7 +298,7 @@ const Notepad = () => {
   return (
     <>
       <div>
-        <div className="grid sm:grid-cols-[120px_1fr] items-start sm:items-center gap-3 sm:gap-1 ">
+        <div className="grid sm:grid-cols-[240px_1fr] items-start sm:items-center gap-3 sm:gap-1 ">
           <h1 className="text-white text-sm sm:text-lg md:text-2xl pb-0 font-bold sm:whitespace-nowrap">
             Live Notepad<span className="text-sm"> </span>
             <small className="text-gray-200 text-xs font-normal">
@@ -458,6 +459,7 @@ const Notepad = () => {
                   className="absolute top-2 right-2 bg-red-600 p-1 rounded-full hover:bg-red-700 focus:outline-none cursor-pointer"
                   onClick={() => handleFileDelete(file.url, file.name)}
                 />
+                {/* <IconDownload className="absolute top-2 right-9 bg-gray-600 p-1 rounded-full hover:bg-blue-700 focus:outline-none cursor-pointer" /> */}
                 <a href={file.url} target="_blank" rel="noopener noreferrer">
                   <img
                     src={file.url}
