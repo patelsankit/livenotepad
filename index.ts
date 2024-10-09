@@ -1,0 +1,1 @@
+export const GALLERY_MODAL = "GALLERY_MODAL";

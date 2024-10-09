@@ -13,6 +13,7 @@ import {
   IconClipboard,
   IconCopy,
   IconDownload,
+  IconEye,
   IconFile,
   IconInfoCircle,
   IconLoader,
@@ -35,6 +36,12 @@ import {
 import { Input } from "./components/ui/input";
 import { Label } from "./components/ui/label";
 import EmojiPicker from "emoji-picker-react";
+import GalleryModal from "./components/GalleryModal";
+import { GALLERY_MODAL } from "..";
+import {
+  useHandleModalAction,
+  useHandleModalStore,
+} from "../store/handleModalStore";
 
 const Notepad = () => {
   const { noteId } = useParams();
@@ -51,6 +58,9 @@ const Notepad = () => {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const emojiPickerRef = useRef(null);
   const location = useLocation();
+  const { modalOpen } = useHandleModalStore();
+  const { setHandleModal } = useHandleModalAction;
+
   const clearUI = () => {
     const event = new CustomEvent("clearUI");
     window.dispatchEvent(event);
@@ -447,7 +457,20 @@ const Notepad = () => {
             )}
           </div>
           {uploadedFiles.length > 0 && (
-            <h1 className="my-2 font-semibold">Your Uploaded Files</h1>
+            <div className="flex items-center gap-3 my-2">
+              <h1 className="my-2 font-semibold">Your Uploaded Files</h1>
+              <div
+                className="group flex items-center justify-center cursor-pointer rounded-md p-2 bg-white/10 sm:hover:bg-white/20 shadow-lg text-gray-500 hover:text-gray-200"
+                onClick={() => setHandleModal(GALLERY_MODAL)}
+              >
+                <div className="group-hover:scale-90 transition-all duration-500 flex gap-1 cursor-pointer ">
+                  <IconEye className="h-5 w-5 md:w-6 md:h-6 cursor-pointer mx-auto" />
+                  <span className="max-h--0 overflow-hidden group-hover:max-h-20 ease-in-out text-xs sm:text-sm text-center">
+                    Preview Images
+                  </span>
+                </div>
+              </div>
+            </div>
           )}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 pb-4">
             {uploadedFiles.map((file) => (
@@ -489,6 +512,7 @@ const Notepad = () => {
           </div>
         </div>
       </div>
+      {modalOpen === GALLERY_MODAL && <GalleryModal />}
     </>
   );
 };
