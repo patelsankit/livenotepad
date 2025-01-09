@@ -1,19 +1,8 @@
-import { useState, useEffect, useRef } from "react";
-import { storage, db } from "../firebase";
-import { doc, setDoc, onSnapshot, getDoc } from "firebase/firestore";
-import {
-  deleteObject,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-  getStorage,
-} from "firebase/storage";
 import {
   IconCheck,
   IconClipboard,
   IconCopy,
   IconDownload,
-  IconFile,
   IconInfoCircle,
   IconLoader,
   IconMoodSmileBeam,
@@ -21,20 +10,31 @@ import {
   IconTrash,
   IconWashDrycleanOff,
 } from "@tabler/icons-react";
-import { useLocation, useParams } from "react-router-dom";
-import { Button } from "./components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "./components/ui/dialog";
-import { Input } from "./components/ui/input";
-import { Label } from "./components/ui/label";
 import EmojiPicker from "emoji-picker-react";
+import { doc, getDoc, onSnapshot, setDoc } from "firebase/firestore";
+import {
+  deleteObject,
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
+import { useEffect, useRef, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
+import { db, storage } from "../firebase";
+import { Button } from "./components/ui/button";
+import { Input } from "./components/ui/input";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "./components/ui/react-alert-dialog";
 
 const Notepad = () => {
   const { noteId } = useParams();
@@ -372,7 +372,38 @@ const Notepad = () => {
                   </span>
                 </div>
               </div>
-              <div
+              <AlertDialog>
+                <AlertDialogTrigger className="">
+                  <div className="group flex items-center justify-center cursor-pointer h-[48px] w-[48px] md:h-[55px] md:w-[55px] rounded-md md:p-1 bg-white/10 sm:hover:bg-white/20 shadow-lg text-gray-500 hover:text-gray-200">
+                    <div className="group-hover:scale-90 transition-all duration-500 grid cursor-pointer ">
+                      <IconWashDrycleanOff className="h-5 w-5 md:w-6 md:h-6 cursor-pointer mx-auto" />
+                      <span className="max-h--0 overflow-hidden group-hover:max-h-20 ease-in-out text-xs sm:text-sm text-center">
+                        clear
+                      </span>
+                    </div>
+                  </div>
+                </AlertDialogTrigger>
+                <AlertDialogContent className="border-gray-500 bg-black  w-[calc(100%-16px)] sm:w-full rounded-lg">
+                  <AlertDialogHeader>
+                    <AlertDialogTitle className="text-center">
+                      Are You Sure You Want To Clear Your Note Board?
+                    </AlertDialogTitle>
+                    <AlertDialogDescription></AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel className=" hover:bg-white/10 border-gray-700">
+                      Cancel
+                    </AlertDialogCancel>
+                    <AlertDialogAction
+                      onClick={clearText}
+                      className=" bg-white/30 hover:bg-white/20 min-w-[80px]"
+                    >
+                      Yes
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+              {/* <div
                 className="group flex items-center justify-center cursor-pointer h-[48px] w-[48px] md:h-[55px] md:w-[55px] rounded-md md:p-1 bg-white/10 sm:hover:bg-white/20 shadow-lg text-gray-500 hover:text-gray-200"
                 onClick={clearText}
               >
@@ -382,7 +413,7 @@ const Notepad = () => {
                     clear
                   </span>
                 </div>
-              </div>
+              </div> */}
               <div
                 className="group flex items-center justify-center cursor-pointer h-[48px] w-[48px] md:h-[55px] md:w-[55px] rounded-md md:p-1 bg-white/10 sm:hover:bg-white/20 shadow-lg text-gray-500 hover:text-gray-200"
                 onClick={copyTextareaToClipboard}
