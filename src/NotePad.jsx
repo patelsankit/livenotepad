@@ -450,6 +450,89 @@ const Notepad = () => {
             placeholder={loading ? "" : "Write your notes here..."}
             className="small-scroll resize-none shadow-2xl p-2.5 sm:p-4 min-h-[300px] h-[calc(80dvh-100px)] overflow-auto w-full bg-[#18181b] text-white border-gray-500 border-2 border-solid focus-visible:outline-none rounded-xl"
           />
+          <AlertDialog>
+            <AlertDialogTrigger className="mb-2">
+              <div className="group flex items-center justify-center cursor-pointer p-2 rounded-md md:p-1 bg-white/10 sm:hover:bg-white/20 shadow-lg text-gray-500 hover:text-gray-200">
+                <div className="group-hover:scale-90 transition-all duration-500 grid cursor-pointer ">
+                  <span className="max-h--0 overflow-hidden group-hover:max-h-20 ease-in-out text-xs sm:text-sm text-center flex items-center gap-2">
+                    How this works <IconInfoCircle />
+                  </span>
+                </div>
+              </div>
+            </AlertDialogTrigger>
+            <AlertDialogContent className="border-gray-500 bg-black  w-[calc(100%-16px)] sm:w-full rounded-lg">
+              <AlertDialogHeader>
+                <AlertDialogTitle className="text-center"></AlertDialogTitle>
+                <AlertDialogDescription></AlertDialogDescription>
+              </AlertDialogHeader>
+              <div>
+                <div class="max-w-3xl mx-auto p-2 text-black">
+                  <h2 class="text-xl font-semibold text-white mb-2">
+                    What is LiveNotepad?
+                  </h2>
+                  <p class="text-md mb-2 text-white">
+                    LiveNotepad is a simple and powerful online notepad that
+                    allows you to create and share notes in real-time. No
+                    sign-up is required—just open a link, start writing, and
+                    share your notes with anyone!
+                  </p>
+
+                  <h2 class="text-xl font-semibold text-white mb-2">
+                    How It Works:
+                  </h2>
+
+                  <ul class="space-y-2.5">
+                    <li class="bg-white p-4 rounded-lg shadow">
+                      <h3 class="text-lg font-semibold text-blue-500">
+                        Create a Note:
+                      </h3>
+                      <p>
+                        Simply go to{" "}
+                        <a
+                          href="https://livenotepad-five.vercel.app/"
+                          target="_blank"
+                          class="text-blue-600 underline"
+                        >
+                          LiveNotepad
+                        </a>
+                        and add a custom name after the URL. For example:
+                      </p>
+                      <p class="font-mono text-gray-700 bg-gray-200 p-2 rounded mt-2">
+                        https://livenotepad-five.vercel.app/yourname
+                      </p>
+                    </li>
+
+                    <li class="bg-white p-4 rounded-lg shadow">
+                      <h3 class="text-lg font-semibold text-blue-500">
+                        Access from Any Device:
+                      </h3>
+                      <p>
+                        Open the same link on any other device—mobile, tablet,
+                        or laptop—and see your notes instantly.
+                      </p>
+                    </li>
+
+                    <li class="bg-white p-4 py-2 rounded-lg shadow">
+                      <h3 class="text-lg font-semibold text-blue-500">
+                        Collaborate in Real Time:
+                      </h3>
+                    </li>
+
+                    <li class="bg-white p-4 py-2 rounded-lg shadow">
+                      <h3 class="text-lg font-semibold text-blue-500">
+                        No Sign-Up Required
+                      </h3>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <AlertDialogFooter>
+                <AlertDialogCancel className=" hover:bg-white/10 border-gray-700">
+                  Close
+                </AlertDialogCancel>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
           <div className="text-sm grid grid-flow-col justify-start gap-2 text-gray-400">
             <IconInfoCircle />
             <div>
